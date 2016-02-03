@@ -31,7 +31,7 @@ Openbox configuration tool for the LXQt desktop.
 %install
 %makeinstall_std -C build
 
-%find_lang %{name}
+%find_lang %{name} --with-qt
 
 %files -f %{name}.lang
 %{_bindir}/%{name}
