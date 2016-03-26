@@ -1,13 +1,14 @@
 Summary:	Openbox configuration tool for the LXQt desktop
 Name:		obconf-qt
 Version:	0.9.0
-Release:	5
+Release:	6
 Source0:	http://lxqt.org/downloads/%{name}/%{version}/%{name}-%{version}.tar.gz
 URL:		http://lxqt.org/
 License:	GPL
 Group:		Graphical desktop/Other
 BuildRequires:	cmake
 BuildRequires:	qmake5
+BuildRequires:	ninja
 BuildRequires:	qt5-linguist-tools
 BuildRequires:	pkgconfig(lxqt)
 BuildRequires:	pkgconfig(Qt5Help)
@@ -23,13 +24,23 @@ Openbox configuration tool for the LXQt desktop.
 %prep
 %setup -q
 # try to fix "undefined reference to symbol 'XInternAtom' - DSO missing from command line error
-%cmake_qt5 -DUSE_QT5=ON -DCMAKE_EXE_LINKER_FLAGS=-lX11
+%cmake_qt5 -DUSE_QT5=ON -DCMAKE_EXE_LINKER_FLAGS=-lX11 -G Ninja
 
 %build
-%make -C build
+# Need to be in a UTF-8 locale so grep (used by the desktop file
+# translation generator) doesn't scream about translations containing
+# "binary" (non-ascii) characters
+export LANG=en_US.utf-8
+export LC_ALL=en_US.utf-8
+%ninja -C build
 
 %install
-%makeinstall_std -C build
+# Need to be in a UTF-8 locale so grep (used by the desktop file
+# translation generator) doesn't scream about translations containing
+# "binary" (non-ascii) characters
+export LANG=en_US.utf-8
+export LC_ALL=en_US.utf-8
+%ninja_install -C build
 
 %find_lang %{name} --with-qt
 
