@@ -17,6 +17,7 @@ BuildRequires:	pkgconfig(x11)
 BuildRequires:	pkgconfig(glib-2.0)
 BuildRequires:	pkgconfig(obrender-3.5)
 BuildRequires:	pkgconfig(obt-3.5)
+BuildRequires:	git-core
 
 %description
 Openbox configuration tool for the LXQt desktop.
