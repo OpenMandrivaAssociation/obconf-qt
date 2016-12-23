@@ -11,7 +11,7 @@ BuildRequires:	qmake5
 BuildRequires:	ninja
 BuildRequires:	cmake(Qt5LinguistTools)
 BuildRequires:	cmake(Qt5Help)
-BuildRequires:	cmake(Qt5XWidgets)
+BuildRequires:	cmake(Qt5Widgets)
 BuildRequires:	cmake(Qt5X11Extras)
 BuildRequires:	cmake(lxqt-build-tools)
 BuildRequires:	pkgconfig(lxqt)
