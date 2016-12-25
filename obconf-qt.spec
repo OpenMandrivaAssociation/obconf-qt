@@ -1,7 +1,7 @@
 Summary:	Openbox configuration tool for the LXQt desktop
 Name:		obconf-qt
 Version:	0.11.1
-Release:	1
+Release:	2
 Source0:	http://lxqt.org/downloads/%{name}/%{version}/%{name}-%{version}.tar.xz
 URL:		http://lxqt.org/
 License:	GPL
@@ -19,7 +19,7 @@ BuildRequires:	pkgconfig(x11)
 BuildRequires:	pkgconfig(glib-2.0)
 BuildRequires:	pkgconfig(obrender-3.5)
 BuildRequires:	pkgconfig(obt-3.5)
-BuildRequires:	git-core
+Requires:	lxqt-l10n
 
 %description
 Openbox configuration tool for the LXQt desktop.
@@ -35,7 +35,7 @@ Openbox configuration tool for the LXQt desktop.
 # "binary" (non-ascii) characters
 export LANG=en_US.utf-8
 export LC_ALL=en_US.utf-8
-%ninja -C build
+%ninja -DPULL_TRANSLATIONS=NO -C build
 
 %install
 # Need to be in a UTF-8 locale so grep (used by the desktop file
@@ -45,9 +45,7 @@ export LANG=en_US.utf-8
 export LC_ALL=en_US.utf-8
 %ninja_install -C build
 
-%find_lang %{name} --with-qt
-
-%files -f %{name}.lang
+%files
 %{_bindir}/%{name}
 %{_datadir}/applications/%{name}.desktop
 %{_iconsdir}/hicolor/*/apps/%{name}.png
