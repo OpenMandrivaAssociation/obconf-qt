@@ -27,7 +27,7 @@ Openbox configuration tool for the LXQt desktop.
 %prep
 %setup -q
 # try to fix "undefined reference to symbol 'XInternAtom' - DSO missing from command line error
-%cmake_qt5 -DUSE_QT5=ON -DCMAKE_EXE_LINKER_FLAGS=-lX11 -G Ninja
+%cmake_qt5 -DUSE_QT5=ON -DPULL_TRANSLATIONS=NO -DCMAKE_EXE_LINKER_FLAGS=-lX11 -G Ninja
 
 %build
 # Need to be in a UTF-8 locale so grep (used by the desktop file
@@ -35,7 +35,7 @@ Openbox configuration tool for the LXQt desktop.
 # "binary" (non-ascii) characters
 export LANG=en_US.utf-8
 export LC_ALL=en_US.utf-8
-%ninja -DPULL_TRANSLATIONS=NO -C build
+%ninja -C build
 
 %install
 # Need to be in a UTF-8 locale so grep (used by the desktop file
