@@ -1,8 +1,8 @@
 Summary:	Openbox configuration tool for the LXQt desktop
 Name:		obconf-qt
-Version:	0.11.1
-Release:	2
-Source0:	http://lxqt.org/downloads/%{name}/%{version}/%{name}-%{version}.tar.xz
+Version:	0.12.0
+Release:	1
+Source0:	https://downloads.lxqt.org/downloads/obconf-qt/%{version}/obconf-qt-%{version}.tar.xz
 URL:		http://lxqt.org/
 License:	GPL
 Group:		Graphical desktop/Other
