@@ -1,18 +1,15 @@
 Summary:	Openbox configuration tool for the LXQt desktop
 Name:		obconf-qt
-Version:	0.16.4
+Version:	0.16.5
 Release:	1
 Source0:	https://github.com/lxqt/obconf-qt/releases/download/%{version}/obconf-qt-%{version}.tar.xz
 URL:		https://lxqt.org/
 License:	GPL
 Group:		Graphical desktop/Other
 BuildRequires:	cmake
-BuildRequires:	qmake5
 BuildRequires:	ninja
-BuildRequires:	cmake(Qt5LinguistTools)
-BuildRequires:	cmake(Qt5Help)
-BuildRequires:	cmake(Qt5Widgets)
-BuildRequires:	cmake(Qt5X11Extras)
+BuildRequires:	cmake(Qt6LinguistTools)
+BuildRequires:	cmake(Qt6Widgets)
 BuildRequires:	cmake(lxqt-build-tools)
 BuildRequires:	pkgconfig(lxqt)
 BuildRequires:	pkgconfig(x11)
@@ -26,7 +23,7 @@ Openbox configuration tool for the LXQt desktop.
 %prep
 %autosetup -p1
 # try to fix "undefined reference to symbol 'XInternAtom' - DSO missing from command line error
-%cmake_qt5 -DUSE_QT5=ON -DPULL_TRANSLATIONS=NO -DCMAKE_EXE_LINKER_FLAGS=-lX11 -G Ninja
+%cmake -DUSE_QT6=ON -DPULL_TRANSLATIONS=NO -DCMAKE_EXE_LINKER_FLAGS=-lX11 -G Ninja
 
 %build
 # Need to be in a UTF-8 locale so grep (used by the desktop file
