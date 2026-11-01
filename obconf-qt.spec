@@ -1,6 +1,6 @@
 Summary:	Openbox configuration tool for the LXQt desktop
 Name:		obconf-qt
-Version:	0.16.5
+Version:	0.16.6
 Release:	1
 Source0:	https://github.com/lxqt/obconf-qt/releases/download/%{version}/obconf-qt-%{version}.tar.xz
 URL:		https://lxqt.org/
@@ -10,7 +10,7 @@ BuildRequires:	cmake
 BuildRequires:	ninja
 BuildRequires:	cmake(Qt6LinguistTools)
 BuildRequires:	cmake(Qt6Widgets)
-BuildRequires:	cmake(lxqt-build-tools)
+BuildRequires:	cmake(lxqt2-build-tools) >= 2.0.0
 BuildRequires:	pkgconfig(lxqt)
 BuildRequires:	pkgconfig(x11)
 BuildRequires:	pkgconfig(glib-2.0)
